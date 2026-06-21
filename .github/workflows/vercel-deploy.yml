@@ -26,6 +26,7 @@ jobs:
           node-version: 22
           cache: npm
           cache-dependency-path: frontend/package-lock.json
+      - run: npm i -g npm@10.9.8
       - run: npm ci
       - run: npm test -- --ci
 
@@ -43,6 +44,7 @@ jobs:
           node-version: 22
           cache: npm
           cache-dependency-path: frontend/package-lock.json
+      - run: npm i -g npm@10.9.8
       - run: npm ci
       - run: npm install --global vercel@latest --silent
       - run: vercel pull --yes --environment=${{ github.ref == 'refs/heads/main' && 'production' || 'preview' }} --token=${{ secrets.VERCEL_TOKEN }}
